@@ -1,0 +1,19 @@
+# Logger configurations.
+localmode: true
+
+dnsserver:
+  address: ""
+  port: 53
+  forwardto: "1.1.1.1:53"
+
+logger:
+  path: "/tmp/"
+  file: "dns-{Y-m-d}.log"
+  level: "all"
+  stdout: true
+
+database:
+  sqlite:
+    type: "sqlite3"
+    link: "config/dnsdb.db"
+    debug: false
