@@ -128,7 +128,7 @@ func getRootDomain(domain string) string {
 	return rootDomain
 }
 
-func (h *dnsRecordsApi) parseQuery(m *dns.Msg) {
+func (h *dnsRecordsApi) ParseQuery(m *dns.Msg) {
 	//type A only
 	var (
 		item *model.DnsRecord
@@ -198,7 +198,7 @@ func (h *dnsRecordsApi) ServeDNS(w dns.ResponseWriter, r *dns.Msg) {
 
 	switch r.Opcode {
 	case dns.OpcodeQuery:
-		h.parseQuery(m)
+		h.ParseQuery(m)
 	}
 
 	if len(m.Answer) > 0 {

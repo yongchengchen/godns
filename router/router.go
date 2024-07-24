@@ -19,6 +19,11 @@ func init() {
 		group.DELETE("/dns-records/:id", api.DnsRecordApi.DeleteRecord)
 	})
 
+	s.Group("/", func(group *ghttp.RouterGroup) {
+		group.GET("/dns-query", api.DnsDoh.DohHandler)
+		group.POST("/dns-query", api.DnsDoh.DohHandler)
+	})
+
 	// path := gfile.MainPkgPath() + "/dist"
 	path := "./dist"
 
